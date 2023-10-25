@@ -50,24 +50,35 @@ function eventos(pev) {
     }
 }
 
+function random(){
+    if (Math.floor(Math.random()*10) < 7){
+        cpu();
+        jogo.jogador =1;
+        fimJogo();
+    
+    } else {
+        console.log("entrou")
+       cpuAleatorio(); 
+    }
+}
+
+
 function cpu() {
     if (jogo.jogador === 2) {
-        if (trywin()) {
+        if (trywin())
+        return;
+    }if (bloquearVitoriaJogador1()) {
             jogo.jogador = 1;
             jogo.rodadas++;
             fimJogo();
+            // CPU bloqueou a vitória do jogador 1, não faça nada mais neste turno.
             return;
-        } else if (bloquearVitoriaJogador1()) {
-            jogo.jogador = 1;
-            jogo.rodadas++;
-            fimJogo();
-            return;  
         } else {
             // CPU não bloqueou, faça uma jogada aleatória.
             cpuAleatorio();
         }
     }
-}
+    
 function bloquearVitoriaJogador1() {
   // Verificar todas as possíveis linhas verticais e horizontais
   for (let i = 0; i < 3; i++) {
@@ -88,7 +99,7 @@ function bloquearVitoriaJogador1() {
     }
     if (jogo.matriz[i][2] === 1 && jogo.matriz[i][1] === 1 && jogo.matriz[i][0] === 0) {
         // Bloquear a vitória do jogador 1
-        jogo.matriz[i][1] = 5; // 5 representa a jogada da CPU
+        jogo.matriz[i][0] = 5; // 5 representa a jogada da CPU
         document.getElementById('b' + (i * 3)).innerHTML = 'O'; // Marcar a posição na interface
         som(snd_click, 1, 1.2);
         return true;
@@ -109,8 +120,8 @@ function bloquearVitoriaJogador1() {
     }
     if (jogo.matriz[2][i] === 1 && jogo.matriz[1][i] === 1 && jogo.matriz[0][i] === 0) {
         // Bloquear a vitória do jogador 1
-        jogo.matriz[i][1] = 5; // 5 representa a jogada da CPU
-        document.getElementById('b' + (i * 3)).innerHTML = 'O'; // Marcar a posição na interface
+        jogo.matriz[i][0] = 5; // 5 representa a jogada da CPU
+        document.getElementById('b' + (3 * 0 + i)).innerHTML = 'O'; // Marcar a posição na interface
         som(snd_click, 1, 1.2);
         return true;
       }
@@ -167,6 +178,13 @@ function bloquearVitoriaJogador1() {
             som(snd_click, 1, 1.2);
             return true;
         }
+        if (jogo.matriz[i][2] === 5 && jogo.matriz[i][1] === 5 && jogo.matriz[i][0] === 0) {
+            // Bloquear a vitória do jogador 1
+            jogo.matriz[i][0] = 5; // 5 representa a jogada da CPU
+            document.getElementById('b' + (i * 3)).innerHTML = 'O'; // Marcar a posição na interface
+            som(snd_click, 1, 1.2);
+            return true;
+          }
 
         // Repetir o mesmo processo para colunas
         if (jogo.matriz[0][i] === 5 && jogo.matriz[1][i] === 5 && jogo.matriz[2][i] === 0) {
@@ -183,6 +201,13 @@ function bloquearVitoriaJogador1() {
             som(snd_click, 1, 1.2);
             return true;
         }
+        if (jogo.matriz[2][i] === 5 && jogo.matriz[1][i] === 5 && jogo.matriz[0][i] === 0) {
+            // Bloquear a vitória do jogador 1
+            jogo.matriz[0][i] = 5; // 5 representa a jogada da CPU
+            document.getElementById('b' + (i + 3 * 0)).innerHTML = 'O'; // Marcar a posição na interface
+            som(snd_click, 1, 1.2);
+            return true;
+          }
         // Verificar o mesmo para as diagonais
         if (jogo.matriz[2][0] === 5 && jogo.matriz[1][1] === 5 && jogo.matriz[0][2] === 0) {
             jogo.matriz[0][2] = 5;
@@ -216,35 +241,35 @@ function bloquearVitoriaJogador1() {
            }
     }
 
-    // Verificar diagonais
-    if (jogo.matriz[0][0] === 5 && jogo.matriz[1][1] === 5 && jogo.matriz[2][2] === 0) {
-        // O CPU pode ganhar na próxima jogada
-        jogo.matriz[2][2] = 5;
-        document.getElementById('b0').innerHTML = 'O'; // Atualiza a interface
-        som(snd_click, 1, 1.2);
-        return true;
-    }
-    if (jogo.matriz[0][0] === 5 && jogo.matriz[2][2] === 5 && jogo.matriz[1][1] === 0) {
-        // O CPU pode ganhar na próxima jogada
-        jogo.matriz[1][1] = 5;
-        document.getElementById('b4').innerHTML = 'O'; // Atualiza a interface
-        som(snd_click, 1, 1.2);
-        return true;
-    }
-    if (jogo.matriz[0][2] === 5 && jogo.matriz[1][1] === 5 && jogo.matriz[2][0] === 0) {
-        // O CPU pode ganhar na próxima jogada
-        jogo.matriz[2][0] = 5;
-        document.getElementById('b6').innerHTML = 'O'; // Atualiza a interface
-        som(snd_click, 1, 1.2);
-        return true;
-    }
-    if (jogo.matriz[0][2] === 5 && jogo.matriz[2][0] === 5 && jogo.matriz[1][1] === 0) {
-        // O CPU pode ganhar na próxima jogada
-        jogo.matriz[1][1] = 5;
-        document.getElementById('b4').innerHTML = 'O'; // Atualiza a interface
-        som(snd_click, 1, 1.2);
-        return true;
-    }
+        // Verificar diagonais
+        if (jogo.matriz[0][0] === 5 && jogo.matriz[1][1] === 5 && jogo.matriz[2][2] === 0) {
+            // O CPU pode ganhar na próxima jogada
+            jogo.matriz[2][2] = 5;
+            document.getElementById('b0').innerHTML = 'O'; // Atualiza a interface
+            som(snd_click, 1, 1.2);
+            return true;
+        }
+        if (jogo.matriz[0][0] === 5 && jogo.matriz[2][2] === 5 && jogo.matriz[1][1] === 0) {
+            // O CPU pode ganhar na próxima jogada
+            jogo.matriz[1][1] = 5;
+            document.getElementById('b4').innerHTML = 'O'; // Atualiza a interface
+            som(snd_click, 1, 1.2);
+            return true;
+        }
+        if (jogo.matriz[0][2] === 5 && jogo.matriz[1][1] === 5 && jogo.matriz[2][0] === 0) {
+            // O CPU pode ganhar na próxima jogada
+            jogo.matriz[2][0] = 5;
+            document.getElementById('b6').innerHTML = 'O'; // Atualiza a interface
+            som(snd_click, 1, 1.2);
+            return true;
+        }
+        if (jogo.matriz[0][2] === 5 && jogo.matriz[2][0] === 5 && jogo.matriz[1][1] === 0) {
+            // O CPU pode ganhar na próxima jogada
+            jogo.matriz[1][1] = 5;
+            document.getElementById('b4').innerHTML = 'O'; // Atualiza a interface
+            som(snd_click, 1, 1.2);
+            return true;
+        }
 }
 
   function cpuAleatorio() {
@@ -304,7 +329,7 @@ function fimJogo() {
         jogo.jogador = -1;  // jogo é pausado
     }
     else if (jogo.jogador == 2)  // verifica se o próximo jogador é a cpu
-        setTimeout(cpu, 2000);  // agenda a jogada da CPU para 2 segundos a partir desse momento
+        setTimeout(random, 2000);  // agenda a jogada da CPU para 2 segundos a partir desse momento
 }
 
 function resultado() {
@@ -351,7 +376,7 @@ function inicio() {
         document.getElementById('b' + i).innerHTML = '';
     }
     if (jogo.jogador === 2)  // se a cpu inicia, agenda a joga da cpu para 0,1 seg.
-        setTimeout(cpu, 100);
+        setTimeout(random, 100);
 }
 
 function som(psom, pvol, pvel) {
