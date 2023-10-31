@@ -64,7 +64,7 @@ function random(){
         fimJogo();
     
     } else {
-        console.log("entrou")
+        console.log("jogou aleatório")
        cpuAleatorio(); 
     }
 }
@@ -322,14 +322,14 @@ function fimJogo() {
     for (let i = 0; i < 8; i++) {
         if (somas[i] === 3) {  // soma 3 indica X como ganhador
             som(snd_palmas, 0.3, 1);
-            document.getElementById("vit_jogador").innerHTML ="WINS!";
+            document.getElementById("vit_jogador").innerHTML = "WINS!";
             jogo.jogador = 1;
             jogo.nrovenc = i;  // armazena a linha, coluna ou diagonal do vencedor (usuário)
             fim = true;
             xven = true;
         } else if (somas[i] === 15) {  // soma 15 indica O como ganhador
             som(snd_risada, 0.3, 1.4);
-            document.getElementById("vit_cpu").innerHTML ="WINS!";
+            document.getElementById("vit_cpu").innerHTML = "WINS!";
             jogo.jogador = 2;
             jogo.nrovenc = i;  // armazena a linha, coluna ou diagonal do vencedor (cpu)
             fim = true;
@@ -354,12 +354,12 @@ function resultado() {
     }
     if (jogo.nrovenc !== -1 && jogo.jogador === 2) {  // verifica se houve vencedor
         for (let bt of jogo.posvenc[jogo.nrovenc]) {  // altera a cor da lin, col ou diag vencedora
-            document.getElementById('b' + bt).style.backgroundColor = 'red';
+            document.getElementById('b' + bt).style.backgroundColor = '#3a7dbe';
         }
     }
     if (jogo.nrovenc !== -1 && jogo.jogador === 1) {  // verifica se houve vencedor
         for (let bt of jogo.posvenc[jogo.nrovenc]) {  // altera a cor da lin, col ou diag vencedora
-            document.getElementById('b' + bt).style.backgroundColor = 'blue';
+            document.getElementById('b' + bt).style.backgroundColor = 'yellow';
         }
     }
 }
