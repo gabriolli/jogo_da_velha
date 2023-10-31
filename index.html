@@ -5,30 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Velha</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.cdnfonts.com/css/mortal-kombat" rel="stylesheet">
 </head>
+
 <body>
-    <p>Jogo da Velha</p>
-    <div id="botoes">
-        <table>
-            <tr>
-                <td><button id="b0"></button></td>
-                <td><button id="b1"></button></td>
-                <td><button id="b2"></button></td>
-            </tr>
-            <tr>
-                <td><button id="b3"></button></td>
-                <td><button id="b4"></button></td>
-                <td><button id="b5"></button></td>
-            </tr>
-            <tr>
-                <td><button id="b6"></button></td>
-                <td><button id="b7"></button></td>
-                <td><button id="b8"></button></td>
-            </tr>
-        </table>
-        <p class="c3" id="cron">00:00</p>
-        <button id='iniciar' class="c2">Iniciar</button>
-    </div>
+    <header>
+        <div class="player_name_box">
+            <input type="text" id="player_name" value="Jogador">
+            <p id="vit_jogador"></p>
+        </div>
+        <div class="main_title">
+            <p>JOGO DA VELHA</p>
+            <p id="info">É possivel alterar o nome dos players, apenas clique em cima dos nomes.</p>
+        </div>
+        <div class="cpu_name_box">
+            <input type="text" id="cpu_name" value="Adversário">
+            <p id="vit_cpu"></p>
+        </div>
+    </header>
+    <main>
+        <div id="overlay">
+            <div id="number_count">3</div>
+        </div>
+        
+        <div class="player_turn_box">
+            <img src="img/scorpion-new.png" alt="player-img"  id="player_char">
+        </div>
+    
+        <div class="main_content">
+           
+            <div id="botoes">
+                <table>
+                    <tr>
+                        <td><button id="b0"></button></td>
+                        <td><button id="b1"></button></td>
+                        <td><button id="b2"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="b3"></button></td>
+                        <td><button id="b4"></button></td>
+                        <td><button id="b5"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="b6"></button></td>
+                        <td><button id="b7"></button></td>
+                        <td><button id="b8"></button></td>
+                    </tr>
+                </table>
+                <p class="c3" id="cron">00:00</p>
+                <div ontouchstart="">
+                    <div class="button">
+                        <button id='iniciar'>INICIAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cpu_turn_box">
+            <img src="img/sub-zero-new.png" alt="cpu-img" id="cpu_char">
+        </div>    
+    </main>
+    
     <script src="index.js"></script>
 </body>
 </html>

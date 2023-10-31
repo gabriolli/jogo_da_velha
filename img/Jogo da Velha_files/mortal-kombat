@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Mortal Kombat 4';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Mortal Kombat 4'), url('https://fonts.cdnfonts.com/s/8109/MK4.woff') format('woff');
+}
+@font-face {
+    font-family: 'Mortal Kombat 1';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Mortal Kombat 1'), url('https://fonts.cdnfonts.com/s/8109/mk1.woff') format('woff');
+}
+@font-face {
+    font-family: 'Mortal Kombat Mythologies';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Mortal Kombat Mythologies'), url('https://fonts.cdnfonts.com/s/8109/mkmyth.woff') format('woff');
+}
+@font-face {
+    font-family: 'Mortal Kombat 2';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Mortal Kombat 2'), url('https://fonts.cdnfonts.com/s/8109/mk2.woff') format('woff');
+}
+@font-face {
+    font-family: 'MuRdOiNk';
+    font-style: normal;
+    font-weight: 400;
+    src: local('MuRdOiNk'), url('https://fonts.cdnfonts.com/s/8109/mkda.woff') format('woff');
+}
+@font-face {
+    font-family: 'Mortal Kombat 5';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Mortal Kombat 5'), url('https://fonts.cdnfonts.com/s/8109/mk5style.woff') format('woff');
+}
+
+

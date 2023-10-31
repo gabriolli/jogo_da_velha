@@ -8,11 +8,7 @@
 }
 
 header{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: last baseline;
-    background-color:#dfdfdf ;
-    border-bottom: solid 7px #000;
+    background-color:#696969 ;
 }
 
 body{
@@ -33,6 +29,7 @@ body{
 
 main {
     margin: 0;
+    
     display: flex;
     justify-content: space-between;
     align-items: last baseline;
@@ -63,7 +60,6 @@ main {
 }
 
 #cpu_name, #player_name{
-    text-shadow: 0px 0px 7px #000;
     color: #fff;
     background: transparent;
     border: 0;
@@ -80,29 +76,25 @@ main {
 
 #cpu_name:hover{
     cursor: pointer;
-    text-shadow: 0px 0px 7px #000fb7;
+    text-shadow: 0px 0px 7px #303cbd;
 }
 #player_name:hover{
     cursor: pointer;
-    text-shadow: 0px 0px 7px #bcb600;
-}
-
-#vit_jogador, #vit_cpu{
-    color: #fff;
-    text-shadow: 0px 0px 7px #000;
+    text-shadow: 0px 0px 7px #d5d030;
 }
 
 .main_content{
-    background-color: #dfdfdf;
+    background-color: #696969;
     display: flex;
     flex-direction: column;
     justify-content: first baseline;
-    align-items: center; 
+    align-items: center;
     width: 70vh;
     height: 80vh;
     padding:    30px 25px 0px 25px;
     border-left: solid 7px #000;
     border-right: solid 7px #000;
+    box-shadow: 0px 0px 40px #4c4a4a;
 }
 
 .main_title{
@@ -139,20 +131,12 @@ main {
     transition: 1s  ;
 }
 
-table{
-    background-color: #000;
-}
-
-tbody tr{
-    margin-top: 5px;
-}
-
 table button {
-    padding: 5px 0px 5px 0px;
-    border: none;
-    font-family: "Mortal-Kombat";
 	width: 110px;
 	height: 110px;
+	border-width: 5px;
+	border-radius: 10px;
+	border-color: #000;
 	font-size: 80px;
 	font-weight: bold;
 	cursor: grab;

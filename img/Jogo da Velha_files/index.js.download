@@ -37,7 +37,7 @@ function eventos(pev) {
         document.getElementById("vit_cpu").innerHTML ="";
         document.getElementById("vit_jogador").innerHTML ="";
         for (let i = 0; i < 9; i++) {
-            document.getElementById('b' + i).style.backgroundColor = '#fff';
+            document.getElementById('b' + i).style.backgroundColor = 'orange';
         }
         inicio3();
     } else {
@@ -352,14 +352,9 @@ function resultado() {
     for (let i = 0; i < 9; i++) {  // define cinza para todos os botões (matriz de jogo)
         document.getElementById('b' + i).style.backgroundColor = 'gray';
     }
-    if (jogo.nrovenc !== -1 && jogo.jogador === 2) {  // verifica se houve vencedor
+    if (jogo.nrovenc !== -1) {  // verifica se houve vencedor
         for (let bt of jogo.posvenc[jogo.nrovenc]) {  // altera a cor da lin, col ou diag vencedora
-            document.getElementById('b' + bt).style.backgroundColor = 'red';
-        }
-    }
-    if (jogo.nrovenc !== -1 && jogo.jogador === 1) {  // verifica se houve vencedor
-        for (let bt of jogo.posvenc[jogo.nrovenc]) {  // altera a cor da lin, col ou diag vencedora
-            document.getElementById('b' + bt).style.backgroundColor = 'blue';
+            document.getElementById('b' + bt).style.backgroundColor = 'orange';
         }
     }
 }
